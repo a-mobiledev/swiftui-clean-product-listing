@@ -2,11 +2,11 @@
 //  NetworkError.swift
 //  ProductListing
 //
-//  Created by Asad Mehmood on 29/11/2024.
+//  Created by Asad Mehmood on 30/11/2024.
 //
 
-import Foundation
 
+import Foundation
 
 enum NetworkError: Error {
     case badURL
@@ -17,7 +17,6 @@ enum NetworkError: Error {
     case unableToDecode
     case notConnected
     case generic
-    
     var description: String {
         switch self {
         case .badURL: return "Bad URL"
