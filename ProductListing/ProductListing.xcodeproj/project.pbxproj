@@ -37,6 +37,8 @@
 		6967B60D2CFB2AB7007289AD /* ProductListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6967B60C2CFB2AB7007289AD /* ProductListService.swift */; };
 		6967B60F2CFB2BD4007289AD /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6967B60E2CFB2BD4007289AD /* APIEndpoint.swift */; };
 		6967B6112CFB2C44007289AD /* ProductListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6967B6102CFB2C44007289AD /* ProductListRepository.swift */; };
+		6967B6132CFB33E3007289AD /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6967B6122CFB33E3007289AD /* AppDIContainer.swift */; };
+		6967B6152CFB3463007289AD /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6967B6142CFB3463007289AD /* AppConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		6967B60C2CFB2AB7007289AD /* ProductListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListService.swift; sourceTree = "<group>"; };
 		6967B60E2CFB2BD4007289AD /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		6967B6102CFB2C44007289AD /* ProductListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListRepository.swift; sourceTree = "<group>"; };
+		6967B6122CFB33E3007289AD /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
+		6967B6142CFB3463007289AD /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				6947A0602CF7002B00B1899E /* ProductListingApp.swift */,
+				6967B6122CFB33E3007289AD /* AppDIContainer.swift */,
+				6967B6142CFB3463007289AD /* AppConfiguration.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -487,6 +493,7 @@
 				6967B5FF2CFB1B1D007289AD /* NetworkConfig.swift in Sources */,
 				6967B60F2CFB2BD4007289AD /* APIEndpoint.swift in Sources */,
 				6947A0972CF880F500B1899E /* ProductsModule.swift in Sources */,
+				6967B6152CFB3463007289AD /* AppConfiguration.swift in Sources */,
 				6967B6022CFB1B1D007289AD /* NetworkRequest.swift in Sources */,
 				6947A0A22CF88EA500B1899E /* ProductListUseCase.swift in Sources */,
 				6967B6042CFB1B1D007289AD /* SharedURLSession.swift in Sources */,
@@ -500,6 +507,7 @@
 				6967B6012CFB1B1D007289AD /* NetworkManager.swift in Sources */,
 				6967B6002CFB1B1D007289AD /* NetworkError.swift in Sources */,
 				6947A0612CF7002B00B1899E /* ProductListingApp.swift in Sources */,
+				6967B6132CFB33E3007289AD /* AppDIContainer.swift in Sources */,
 				6967B6092CFB1C79007289AD /* URLAuthenticationChallenge+TrustServer.swift in Sources */,
 				6967B5EE2CF9CBC2007289AD /* Constants.swift in Sources */,
 				6967B6032CFB1B1D007289AD /* NetworkSessionManager.swift in Sources */,
