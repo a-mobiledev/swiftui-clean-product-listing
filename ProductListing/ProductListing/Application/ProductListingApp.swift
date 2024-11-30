@@ -10,9 +10,11 @@ import SwiftUI
 @main
 struct ProductListingApp: App {
 
+    private let appDIContainer = AppDIContainer()
+    
     var body: some Scene {
         WindowGroup {
-            ProductListView()
+            appDIContainer.productListView
         }
     }
 }
