@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct ProductListView: View{//<ViewModel>: View where ViewModel: ProductListViewModelProtocol {
+struct ProductListView<ViewModel>: View where ViewModel: ProductListViewModelProtocol {
 
-//    @ObservedObject private var viewModel: ViewModel
-//    init(viewModel: ViewModel) {
-//        self.viewModel = viewModel
-//    }
+    @ObservedObject private var viewModel: ViewModel
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+    }
     
     let columns = [GridItem(.adaptive(minimum: 120), spacing: 20)]
 
@@ -20,10 +20,10 @@ struct ProductListView: View{//<ViewModel>: View where ViewModel: ProductListVie
     var body: some View {
         NavigationStack{
             
-//            if viewModel.shouldShowLoader() {
-//                ProgressView()
-//                    .progressViewStyle(.circular)
-//            } else {
+            if viewModel.shouldShowLoader() {
+                ProgressView()
+                    .progressViewStyle(.circular)
+            } else {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(0..<21) { index in
@@ -34,7 +34,7 @@ struct ProductListView: View{//<ViewModel>: View where ViewModel: ProductListVie
                 }
                 .navigationTitle(AppConstant.productListTitle)
                 .navigationBarTitleDisplayMode(.large)
-//            }
+            }
         }
     }
 }
