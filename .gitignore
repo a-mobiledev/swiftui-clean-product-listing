@@ -61,3 +61,4 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 ProductListing/.DS_Store
+ProductListing/ProductListing.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
