@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProductListItemViewModel {
+struct ProductListItemViewModel: Hashable {
     let id: Int
     let title: String
     let description: String

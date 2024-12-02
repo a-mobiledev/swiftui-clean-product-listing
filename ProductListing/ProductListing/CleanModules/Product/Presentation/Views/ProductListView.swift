@@ -14,9 +14,6 @@ struct ProductListView<ViewModel>: View where ViewModel: ProductListViewModelPro
         self.viewModel = viewModel
     }
     
-    let columns = [GridItem(.adaptive(minimum: 120), spacing: 20)]
-
-
     var body: some View {
         NavigationStack{
             
@@ -24,18 +21,27 @@ struct ProductListView<ViewModel>: View where ViewModel: ProductListViewModelPro
                 ProgressView()
                     .progressViewStyle(.circular)
             } else {
-                ScrollView {
-                    LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(0..<21) { index in
-                            ProductListItemView(index: index)
+                ProductListLayout(items: viewModel.products)
+                    .overlay {
+                        if viewModel.isError {
+                            ErrorView(errorTitle: AppConstant.errorTitle, errorDescription: viewModel.error) {
+                                Task {
+                                    await fetchProducts()
+                                }
+                            }
                         }
                     }
-                    .padding(20)
-                }
                 .navigationTitle(AppConstant.productListTitle)
                 .navigationBarTitleDisplayMode(.large)
             }
         }
+        .task {
+            await fetchProducts()
+        }
+    }
+    
+    private func fetchProducts() async {
+        await viewModel.fetchProducts()
     }
 }
 

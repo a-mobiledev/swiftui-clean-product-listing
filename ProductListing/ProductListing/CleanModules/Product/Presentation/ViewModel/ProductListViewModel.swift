@@ -33,7 +33,7 @@ class ProductListViewModel: ProductListViewModelProtocol {
     }
     
     private func transformFetchedProducts(products: [ProductDomainListDTO]) -> [ProductListItemViewModel] {
-        products.map { ProductListItemViewModel(id: $0.productId, title: $0.title, description: $0.description, category: $0.category, price: $0.price, image: $0.thumbnail)
+        products.map { ProductListItemViewModel(id: $0.productId, title: $0.title, description: $0.description, category: $0.category, price: $0.price.getAmountWithCurrency(), image: $0.thumbnail)
         }
     }
     
