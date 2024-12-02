@@ -12,6 +12,6 @@ struct ProductListItemViewModel {
     let title: String
     let description: String
     let category: String
-    let price: Double
+    let price: String
     let image: String
 }

@@ -8,33 +8,18 @@
 import SwiftUI
 
 struct ProductListItemView: View {
-    var index: Int
     
+    var item: ProductListItemViewModel
     
     var body: some View {
-        VStack {
-            Spacer()
-            Image(systemName: "trash")
-                .frame(width: 100, height: 100)
-                .scaledToFit()
-            Spacer()
-            
-            Text("Name \(index)")
-                .font(.headline)
-                .foregroundStyle(.white)
-            
-            Spacer()
+        VStack(alignment: .leading) {
+            HeaderImageView(urlString: item.image, height: 150)
+            Text(item.title).font(.title)
+            Text(item.price)
+                .foregroundStyle(.red)
+                .font(.title2)
         }
-        .frame(maxWidth: .infinity, minHeight: 120)
-        .background(.blue)
-        .presentationCornerRadius(10)
-        .contextMenu {
-            Button {
-                print("Cell \(index) deleted")
-            } label: {
-                Label("Delete", systemImage: "trash")
-            }
-
-        }
+        .preferredColorScheme(.light)
+        
     }
 }
