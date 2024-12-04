@@ -37,6 +37,7 @@ class ProductListViewModel: ProductListViewModelProtocol {
         }
     }
     
+    @MainActor
     func fetchProducts() async {
         do {
             let productList = try await productListUseCase.fetchProductList()

@@ -9,4 +9,5 @@ import Foundation
 
 struct APIEndpoint {
     static let products = "/products"
+    static let comments = "/comments"
 }
