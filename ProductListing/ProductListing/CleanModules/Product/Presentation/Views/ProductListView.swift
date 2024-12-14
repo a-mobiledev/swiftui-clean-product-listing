@@ -7,24 +7,25 @@
 
 import SwiftUI
 
-struct ProductListView<ViewModel>: View where ViewModel: ProductListViewModelProtocol {
+struct ProductListView: View {
 
-    @ObservedObject private var viewModel: ViewModel
-    init(viewModel: ViewModel) {
-        self.viewModel = viewModel
+    @ObservedObject private var productListViewModel: ProductListViewModel
+    
+    init(productListViewModel: ProductListViewModel) {
+        self.productListViewModel = productListViewModel
     }
     
     var body: some View {
         NavigationStack{
             
-            if viewModel.shouldShowLoader() {
+            if productListViewModel.shouldShowLoader() {
                 ProgressView()
                     .progressViewStyle(.circular)
             } else {
-                ProductListLayout(items: viewModel.products)
+                ProductListLayout(items: productListViewModel.products)
                     .overlay {
-                        if viewModel.isError {
-                            ErrorView(errorTitle: AppConstant.errorTitle, errorDescription: viewModel.error) {
+                        if productListViewModel.isError {
+                            ErrorView(errorTitle: AppConstant.errorTitle, errorDescription: productListViewModel.error) {
                                 Task {
                                     await fetchProducts()
                                 }
@@ -41,8 +42,9 @@ struct ProductListView<ViewModel>: View where ViewModel: ProductListViewModelPro
     }
     
     private func fetchProducts() async {
-        await viewModel.fetchProducts()
+        await productListViewModel.fetchProducts()
     }
+    
 }
 
 //#Preview {

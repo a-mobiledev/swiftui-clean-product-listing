@@ -15,23 +15,39 @@ class ProductsModule {
         self.apiDataTransferService = apiDataTransferService
     }
     
-    func generateProductListView() -> ProductListView<ProductListViewModel> {
-        ProductListView(viewModel: generateProductListViewModel())
+    func generateProductListView() -> ProductListView {
+        ProductListView(productListViewModel: generateProductListViewModel())
+    }
+    
+    func generateProductDetailView(item: ProductListItemViewModel) -> ProductDetailView {
+        ProductDetailView(item: item)
     }
     
     private func generateProductListViewModel() -> ProductListViewModel {
         ProductListViewModel(useCase: generateProductListUseCase())
     }
+    private func generateProductCommentsViewModel() -> ProductCommentsViewModel {
+        ProductCommentsViewModel(useCase: generateProductCommentsUseCase())
+    }
     
     private func generateProductListUseCase() -> ProductListUseCase {
         DefaultProductListUseCase(repository: generateProductListRespository())
+    }
+    private func generateProductCommentsUseCase() -> ProductCommentsUseCase {
+        DefaultProductCommentsUseCase(repository: generateProductCommentsRespository())
     }
     
     private func generateProductListRespository() -> ProductListRepository {
         DefaultProductListRepository(service: generateProductListService())
     }
+    private func generateProductCommentsRespository() -> ProductCommentsRepository {
+        DefaultProductCommentsRepository(service: generateProductCommentsService())
+    }
     
     private func generateProductListService() -> ProductListService {
         DefaultProductListService(apiDataTransferService: apiDataTransferService)
+    }
+    private func generateProductCommentsService() -> ProductCommentsService {
+        DefaultProductCommentsService(apiDataTransferService: apiDataTransferService)
     }
 }
